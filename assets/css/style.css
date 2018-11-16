@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+}
+
+.form{
+    margin:0;
+}
+
+.navbar-brand{
+    font-family: 'Caveat Brush', cursive;
+    font: 35px bold;
+    padding:0;
+}
+
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    text-align:center;
+
+ }
+
+ .card-body{
+     padding:2px;
+ }
