@@ -54,3 +54,56 @@ $(document).ready(function(){
    
    })
    
+
+
+
+   //=========RECIPE API================
+
+
+   function getRecipeJson(foodSearch) {
+    var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+    
+    var url = "http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw="
+              + foodSearch
+              + "&api_key=" + apiKey;
+    $.ajax({
+        type: "GET",
+        url: url,
+      }).then(function(response) { {
+            console.log(response);
+            var foodArray = response.Results['5'].PhotoURL;
+            console.log(foodArray);
+        }
+    });
+}
+            
+            
+
+
+
+
+   function getRecipeJson(food) {
+    var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+    var RecipeID ="220280"
+    
+    var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
+            //   + food
+            //   + "&api_key=" + apiKey;
+    $.ajax({
+        type: "GET",
+        url: url,
+      }).then(function(response) { {
+          console.log(response.ImageURL);
+          console.log(response.Instructions);
+           console.log(response.Ingredients[0].Name);
+   
+          
+          
+        }
+    });
+}
+
+getRecipeJson();
+
+//http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw=chicken&api_key=rxQ11293h59oU9Z853fw48CmI1H1Js
+     
