@@ -1,5 +1,3 @@
-$('.carousel').carousel('pause');
-
 $(document).ready(function(){
     var btnSearch="none";
 
@@ -60,23 +58,60 @@ $(document).ready(function(){
    //=========RECIPE API================
 
 
-   function getRecipeJson(foodSearch) {
+   //Recipe calls 
+$("#select-food").on("click", function(event) {
+    // Preventing the button from trying to submit the form
+    event.preventDefault();
+    // Storing the artist name
+    var inputFood = $("#inputfood").val().trim();
+  
+    // Running the searchBandsInTown function(passing in the artist as an argument)
+    getRecipeIDJson(inputFood);
+      
+    
+  });
+
+
+   function getRecipeIDJson(foodSearch) {
+
+    
+
     var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
     
-    var url = "http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw="
+    var url = "http://api2.bigoven.com/recipes?pg=1&rpp=5&title_kw="
               + foodSearch
               + "&api_key=" + apiKey;
     $.ajax({
         type: "GET",
         url: url,
-      }).then(function(response) { {
-            console.log(response);
-            var foodArray = response.Results['5'].PhotoURL;
-            console.log(foodArray);
-        }
-    });
+      }).then(function(response) { 
+        //   console.log(response)
+        var idList= response.Results;
+        
+        for(var i=0; i<idList.length; i++){
+        // console.log(idList[i].PhotoUrl)
+        console.log(idList[i].Title)
+        console.log(idList[i].RecipeID);
+        $("#slide1").text(idList[0].Title)
+        $("#slide2").text(idList[1].Title)
+        $("#slide3").text(idList[2].Title)
+        $("#slide4").text(idList[3].Title)
+        $("#slide5").text(idList[4].Title)
+
+
+
+        var imgSource = idList[i].PhotoUrl;
+
+        $("#slide1").css("background-image","url("+ idList[0].PhotoUrl +")");
+        $("#slide2").css("background-image","url("+ idList[1].PhotoUrl +")");
+        $("#slide3").css("background-image","url("+ idList[2].PhotoUrl +")");
+        $("#slide4").css("background-image","url("+ idList[3].PhotoUrl +")");
+        $("#slide5").css("background-image","url("+ idList[4].PhotoUrl +")");
+    
+    }
+});
 }
-            
+
             
 
 
@@ -93,10 +128,23 @@ $(document).ready(function(){
         type: "GET",
         url: url,
       }).then(function(response) { {
-          console.log(response.ImageURL);
-          console.log(response.Instructions);
-           console.log(response.Ingredients[0].Name);
+          
+        // console.log(response.Instructions);
+         
+          var ingList= response.Ingredients;
+        
+          for(var i=0; i<ingList.length; i++){
+            // console.log(ingList[i].Name)
+            $(".ingredients").append(ingList[i].Name + "</br>")  
+            $(".instructions").text(response.Instructions)
+        //     $("#slide1").text(response.Instructions)
+        //     $("#slide2").text(response.Instructions)
+        //     $("#slide3").text(response.Instructions)
+        //     $("#slide4").text(response.Instructions)
+        //     $("#slide5").text(response.Instructions)
+        // }
    
+  
           
           
         }
@@ -106,4 +154,5 @@ $(document).ready(function(){
 getRecipeJson();
 
 //http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw=chicken&api_key=rxQ11293h59oU9Z853fw48CmI1H1Js
-     
+
+
