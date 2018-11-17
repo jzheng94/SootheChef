@@ -13,7 +13,7 @@
 
 <!-- JumboTron-->
 <nav class="navbar navbar-dark bg-transparent justify-content-between pb-2">
-  <a class="navbar-brand text-white">SOOTHE CHEF.</a>
+  <a class="navbar-brand text-dark">SOOTHE CHEF.</a>
   <form class="form form-inline">
       <div id ="musicPlayer"></div>
       <button class="btn btn-default bg-transparent" id="happyBtn" type="button"> <img src="assets/images/happy-4.png" width="40" /></button>
@@ -23,8 +23,8 @@
       <button class="btn btn-default bg-transparent" id="classyBtn" type="button"> <img src="assets/images/moustache.png" width="40" /></button>
       <button class="btn btn-default bg-transparent" id="loveBtn" type="button">  <img src="assets/images/happy-8.png" width="40" /></button>
       <button class="btn btn-default bg-transparent" id="hypeBtn" type="button"> <img src="assets/images/shouting.png" width="40" /></button>
-    <input class="form-control mr-sm-2" type="search" placeholder="FOOD???" aria-label="Search">
-    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" id="inputfood" type="search" placeholder="FOOD???" aria-label="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" id="select-food" type="submit">Search</button>
   </form>
   
 </nav>
@@ -45,75 +45,20 @@
     </section>
 </div>
 
-<!-- SPOTIFY FOOTER -->
 
+<!-- <div class="container bg-white">
+  <div class ="row">
+    <div class="ingredients col-3 border border-warning"><h3>Ingredients</h3></div>
+    <div class="instructions col-9 border border-warning"></div>
+  </div>
+</div> -->
 
-<!-- <footer class="footer">
-  <div>
-<iframe src="https://open.spotify.com/user/spotify/playlist/37i9dQZF1DX6ziVCJnEm59?si=ychCdIGYSWC_7LQu9sdmlg" width="100%" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-</div>
-</footer> -->
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="assets/javascript/javascript.js"></script>
 
-
-<script>
-    function getRecipeJson(food) {
-  var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
-  
-  var url = "http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw="
-            + food
-            + "&api_key=" + apiKey;
-  $.ajax({
-      type: "GET",
-      url: url,
-    }).then(function(response) { {
-          console.log(response);
-          var foodArray = response.Results['5'].PhotoURL;
-          console.log(foodArray);
-          
-          addToPage(response.Results['1'].Title, response.Results['1'].Subcategory, response.Results['1']);
-          
-          
-         //has to be appended to carousel
-         
-        
-        
-    }
-      });
-}
-
-$("#select-artist").on("click", function(event) {
-  // Preventing the button from trying to submit the form
-  event.preventDefault();
-  // Storing the artist name
-  var inputFood = $("#artist-input").val().trim();
-
-  // Running the searchBandsInTown function(passing in the artist as an argument)
-  getRecipeJson(inputFood);
-    
-  
-});
-function addToPage(title, description, buttonArray){
-	//alert("addToPage invoked");
-
-var i = 1;
-var myCol = $('<div class="col-sm-3 col-md-3 pb-2"></div>');
-	var pnel = ('<div class="card"> <img class="card-img-top img-fluid" src="http://placehold.it/800x600/3ed846/fff" alt="Card image cap"> <div class="card-body"> <h4 class="card-title">'+title+'</h4> <p class="card-text">'+description+'.</p>');
-	for(var i=0; i<buttonArray.length; i++) {
-	//pnel= pnel+ ('<a id='+ buttonArray[i] +' href="#" class="btn btn-primary">'+ buttonArray[i] +'</a>');
-	pnel= pnel+ ('<button onclick="addToPage(\'Title of '+buttonArray[i]+'\', \'Description  of '+buttonArray[i]+'\', [\'button1\', \'button2\'])">'+ buttonArray[i] +'</a>');
-	}
-	pnel= pnel+ '</div> </div> <br>';
-	var myPanel = $(pnel);
-		myPanel.appendTo(myCol);
-        myCol.appendTo("#carousel-iner"); //#contentPanel
-    
-}
-    </script>
    
 </body>
 </html>
