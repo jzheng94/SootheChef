@@ -57,6 +57,7 @@ $(document).ready(function(){
 
    //=========RECIPE API================
 
+  
 
    //Recipe calls 
 $("#select-food").on("click", function(event) {
@@ -88,67 +89,223 @@ $("#select-food").on("click", function(event) {
         //   console.log(response)
         var idList= response.Results;
         
-        for(var i=0; i<idList.length; i++){
+        for(var i=0; i<idList.length; i++){}
         // console.log(idList[i].PhotoUrl)
-        console.log(idList[i].Title)
-        console.log(idList[i].RecipeID);
+        // console.log(idList[i].Title)
+
         $("#slide1").text(idList[0].Title)
         $("#slide2").text(idList[1].Title)
         $("#slide3").text(idList[2].Title)
         $("#slide4").text(idList[3].Title)
         $("#slide5").text(idList[4].Title)
 
+        var RecipeID ="1";
 
-
-        var imgSource = idList[i].PhotoUrl;
-
-        // $("#slide1").css("background-image","url("+ idList[0].PhotoUrl +")");
-        // $("#slide2").css("background-image","url("+ idList[1].PhotoUrl +")");
-        // $("#slide3").css("background-image","url("+ idList[2].PhotoUrl +")");
-        // $("#slide4").css("background-image","url("+ idList[3].PhotoUrl +")");
-        // $("#slide5").css("background-image","url("+ idList[4].PhotoUrl +")");
     
-    }
+        $("#slide1").click(function() {
+            RecipeID = idList[0].RecipeID
+            function getRecipeJson(food) {
+                var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+               
+                
+                var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
+                        //   + food
+                        //   + "&api_key=" + apiKey;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                  }).then(function(response) { {
+                      
+                    // console.log(response.Instructions);
+                     
+                      var ingList= response.Ingredients;
+                    
+                      for(var i=0; i<ingList.length; i++){
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").html(ingList[i].Name + "</br>")  
+                        $(".instructions").text(response.Instructions)
+                      
+                
+                    }
+               
+              
+                      
+                      
+                    }
+                });
+            }
+            
+            getRecipeJson();
+        
+           
+        });
+
+    
+        $("#slide2").click(function() {
+            RecipeID = idList[1].RecipeID
+            function getRecipeJson(food) {
+                var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+               
+                
+                var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
+                        //   + food
+                        //   + "&api_key=" + apiKey;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                  }).then(function(response) { {
+                      
+                    // console.log(response.Instructions);
+                     
+                      var ingList= response.Ingredients;
+                    
+                      for(var i=0; i<ingList.length; i++){
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").html(ingList[i].Name + "</br>")  
+                        $(".instructions").text(response.Instructions)
+                      
+                
+                    }
+               
+              
+                      
+                      
+                    }
+                });
+            }
+            
+            getRecipeJson();
+        
+           
+        });
+
+        $("#slide3").click(function() {
+            RecipeID = idList[2].RecipeID
+            function getRecipeJson(food) {
+                var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+               
+                
+                var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
+                        //   + food
+                        //   + "&api_key=" + apiKey;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                  }).then(function(response) { {
+                      
+                    // console.log(response.Instructions);
+                     
+                      var ingList= response.Ingredients;
+                    
+                      for(var i=0; i<ingList.length; i++){
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").html(ingList[i].Name + "</br>")  
+                        $(".instructions").text(response.Instructions)
+                      
+                
+                    }
+               
+              
+                      
+                      
+                    }
+                });
+            }
+            
+            getRecipeJson();
+        
+           
+        });
+
+        $("#slide4").click(function() {
+            RecipeID = idList[3].RecipeID
+            function getRecipeJson(food) {
+                var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+               
+                
+                var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
+                        //   + food
+                        //   + "&api_key=" + apiKey;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                  }).then(function(response) { {
+                      
+                    // console.log(response.Instructions);
+                     
+                      var ingList= response.Ingredients;
+                    
+                      for(var i=0; i<ingList.length; i++){
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").html(ingList[i].Name + "</br>")  
+                        $(".instructions").text(response.Instructions)
+                      
+                
+                    }
+               
+              
+                      
+                      
+                    }
+                });
+            }
+            
+            getRecipeJson();
+        
+           
+        });
+
+        $("#slide5").click(function() {
+            RecipeID = idList[4].RecipeID
+            function getRecipeJson(food) {
+                var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+               
+                
+                var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
+                        //   + food
+                        //   + "&api_key=" + apiKey;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                  }).then(function(response) { {
+                      
+                    // console.log(response.Instructions);
+                     
+                      var ingList= response.Ingredients;
+                    
+                      for(var i=0; i<ingList.length; i++){
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").html(ingList[i].Name +"</br>")  
+                        $(".instructions").text(response.Instructions)
+                      
+                
+                    }
+               
+              
+                      
+                      
+                    }
+                });
+            }
+            
+            getRecipeJson();
+        
+           
+        });
+
+
+
+
+       
+
+        
 });
 }
 
-            
 
 
-
-
-   function getRecipeJson(food) {
-    var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
-    var RecipeID ="220280"
-    
-    var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
-            //   + food
-            //   + "&api_key=" + apiKey;
-    $.ajax({
-        type: "GET",
-        url: url,
-      }).then(function(response) { {
-          
-        // console.log(response.Instructions);
-         
-          var ingList= response.Ingredients;
-        
-          for(var i=0; i<ingList.length; i++){
-            // console.log(ingList[i].Name)
-            $(".ingredients").append(ingList[i].Name + "</br>")  
-            $(".instructions").text(response.Instructions)
-          
-    
-        }
    
-  
-          
-          
-        }
-    });
-}
 
-getRecipeJson();
 
 //http://api2.bigoven.com/recipes?pg=1&rpp=25&title_kw=chicken&api_key=rxQ11293h59oU9Z853fw48CmI1H1Js
 
