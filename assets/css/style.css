@@ -2,13 +2,16 @@
     margin:0;
 }
 
-.navbar-brand{
-    font-family: 'Caveat Brush', cursive;
-    font: 35px bold;
-    padding:0;
-    
+nav{
+  padding: 0;
 }
 
+#logo{
+  font-family: 'Arvo', serif;
+  padding:0;
+  font-size: 35px;
+
+}
 footer{
     position:fixed;
     bottom:0;
@@ -32,7 +35,7 @@ footer{
  }
 
  #slider {
-   height: 45vw;
+   height: 4vw;
    position: relative;
    perspective: 800px;
    transform-style: preserve-3d;
@@ -47,6 +50,10 @@ footer{
    left: 0; right: 0;
    cursor: pointer;
    transition: transform 0.4s ease;
+   text-align: center;
+   font-size: 3vw;
+   font-family: 'Arvo', serif;
+   font-weight:bold;
  }
 
  #s1:checked ~ #slide4, #s2:checked ~ #slide5,
@@ -84,8 +91,9 @@ footer{
    transform: translate3d(30%,0,-200px);
  }
 
- #slide1 { background: rgb(176, 186, 187) }
- #slide2 { background: rgb(165, 138, 230) }
- #slide3 { background: rgb(240, 247, 185) }
- #slide4 { background: rgb(240, 135, 175) }
- #slide5 { background: rgb(110, 63, 49) }
+ #slide1 { background: #E53D00 }
+ #slide2 { background: #FFE900 }
+ #slide3 { background: #FFF9B9}
+ #slide4 { background: #21A0A0 }
+ #slide5 { background: #046865 }
+

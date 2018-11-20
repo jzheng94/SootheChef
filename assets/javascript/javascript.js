@@ -43,7 +43,7 @@ $(document).ready(function(){
         
         var results = response.items;
         var playList = results[Math.floor(Math.random() * 15)].id.videoId
-        var videoResponse = '<iframe width="200" height="50" src="https://www.youtube.com/embed/' + playList + '" frameborder="0" encrypted-media></iframe>'
+        var videoResponse = '<iframe width="150" height="50" src="https://www.youtube.com/embed/' + playList + '" frameborder="0" encrypted-media></iframe>'
            
         $("#musicPlayer").html(videoResponse)
     });
@@ -102,11 +102,11 @@ $("#select-food").on("click", function(event) {
 
         var imgSource = idList[i].PhotoUrl;
 
-        $("#slide1").css("background-image","url("+ idList[0].PhotoUrl +")");
-        $("#slide2").css("background-image","url("+ idList[1].PhotoUrl +")");
-        $("#slide3").css("background-image","url("+ idList[2].PhotoUrl +")");
-        $("#slide4").css("background-image","url("+ idList[3].PhotoUrl +")");
-        $("#slide5").css("background-image","url("+ idList[4].PhotoUrl +")");
+        // $("#slide1").css("background-image","url("+ idList[0].PhotoUrl +")");
+        // $("#slide2").css("background-image","url("+ idList[1].PhotoUrl +")");
+        // $("#slide3").css("background-image","url("+ idList[2].PhotoUrl +")");
+        // $("#slide4").css("background-image","url("+ idList[3].PhotoUrl +")");
+        // $("#slide5").css("background-image","url("+ idList[4].PhotoUrl +")");
     
     }
 });
@@ -137,12 +137,9 @@ $("#select-food").on("click", function(event) {
             // console.log(ingList[i].Name)
             $(".ingredients").append(ingList[i].Name + "</br>")  
             $(".instructions").text(response.Instructions)
-        //     $("#slide1").text(response.Instructions)
-        //     $("#slide2").text(response.Instructions)
-        //     $("#slide3").text(response.Instructions)
-        //     $("#slide4").text(response.Instructions)
-        //     $("#slide5").text(response.Instructions)
-        // }
+          
+    
+        }
    
   
           
