@@ -99,7 +99,7 @@ $("#select-food").on("click", function(event) {
         $("#slide4").text(idList[3].Title)
         $("#slide5").text(idList[4].Title)
 
-        var RecipeID ="1";
+        var RecipeID ="";
 
     
         $("#slide1").click(function() {
@@ -121,8 +121,9 @@ $("#select-food").on("click", function(event) {
                       var ingList= response.Ingredients;
                     
                       for(var i=0; i<ingList.length; i++){
-                        // console.log(ingList[i].Name)
-                        $(".ingredients").html(ingList[i].Name + "</br>")  
+                        console.log(ingList[i].Name)
+                        $(".ingredients").empty();
+                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>")
                         $(".instructions").text(response.Instructions)
                       
                 
@@ -160,8 +161,9 @@ $("#select-food").on("click", function(event) {
                       var ingList= response.Ingredients;
                     
                       for(var i=0; i<ingList.length; i++){
-                        // console.log(ingList[i].Name)
-                        $(".ingredients").html(ingList[i].Name + "</br>")  
+                        console.log(ingList[i].Name)
+                        $(".ingredients").empty();
+                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>")   
                         $(".instructions").text(response.Instructions)
                       
                 
@@ -198,8 +200,10 @@ $("#select-food").on("click", function(event) {
                       var ingList= response.Ingredients;
                     
                       for(var i=0; i<ingList.length; i++){
-                        // console.log(ingList[i].Name)
-                        $(".ingredients").html(ingList[i].Name + "</br>")  
+                        console.log(ingList[i].Name)
+                        
+                        $(".ingredients").empty();
+                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>");  
                         $(".instructions").text(response.Instructions)
                       
                 
@@ -236,9 +240,10 @@ $("#select-food").on("click", function(event) {
                       var ingList= response.Ingredients;
                     
                       for(var i=0; i<ingList.length; i++){
-                        // console.log(ingList[i].Name)
-                        $(".ingredients").html(ingList[i].Name + "</br>")  
-                        $(".instructions").text(response.Instructions)
+                        console.log(ingList[i].Name)
+                        $(".ingredients").empty();
+                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>");  
+                        $(".instructions").text(response.Instructions);
                       
                 
                     }
@@ -256,9 +261,10 @@ $("#select-food").on("click", function(event) {
         });
 
         $("#slide5").click(function() {
-            RecipeID = idList[4].RecipeID
+        
             function getRecipeJson(food) {
                 var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
+                RecipeID = idList[4].RecipeID
                
                 
                 var url = "http://api2.bigoven.com/recipe/" + RecipeID + "?api_key="+apiKey;
@@ -272,11 +278,13 @@ $("#select-food").on("click", function(event) {
                     // console.log(response.Instructions);
                      
                       var ingList= response.Ingredients;
+                      console.log(response.Ingredients)
                     
                       for(var i=0; i<ingList.length; i++){
-                        // console.log(ingList[i].Name)
-                        $(".ingredients").html(ingList[i].Name +"</br>")  
-                        $(".instructions").text(response.Instructions)
+                        console.log(ingList[i].Name)
+                        $(".ingredients").empty();
+                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>"); 
+                        $(".instructions").text(response.Instructions);
                       
                 
                     }
