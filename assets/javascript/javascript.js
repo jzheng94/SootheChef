@@ -103,6 +103,7 @@ $("#select-food").on("click", function(event) {
 
     
         $("#slide1").click(function() {
+            $(".ingredients").empty();
             RecipeID = idList[0].RecipeID
             function getRecipeJson(food) {
                 var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
@@ -121,10 +122,10 @@ $("#select-food").on("click", function(event) {
                       var ingList= response.Ingredients;
                     
                       for(var i=0; i<ingList.length; i++){
-                        console.log(ingList[i].Name)
-                        $(".ingredients").empty();
-                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>")
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").append(ingList[i].Name + "</br>")
                         $(".instructions").text(response.Instructions)
+                      
                       
                 
                     }
@@ -143,6 +144,7 @@ $("#select-food").on("click", function(event) {
 
     
         $("#slide2").click(function() {
+            $(".ingredients").empty();
             RecipeID = idList[1].RecipeID
             function getRecipeJson(food) {
                 var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
@@ -159,11 +161,10 @@ $("#select-food").on("click", function(event) {
                     // console.log(response.Instructions);
                      
                       var ingList= response.Ingredients;
-                    
+               
                       for(var i=0; i<ingList.length; i++){
-                        console.log(ingList[i].Name)
-                        $(".ingredients").empty();
-                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>")   
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").append(ingList[i].Name + "</br>")
                         $(".instructions").text(response.Instructions)
                       
                 
@@ -182,6 +183,7 @@ $("#select-food").on("click", function(event) {
         });
 
         $("#slide3").click(function() {
+            $(".ingredients").empty();
             RecipeID = idList[2].RecipeID
             function getRecipeJson(food) {
                 var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
@@ -199,13 +201,11 @@ $("#select-food").on("click", function(event) {
                      
                       var ingList= response.Ingredients;
                     
+                     
                       for(var i=0; i<ingList.length; i++){
-                        console.log(ingList[i].Name)
-                        
-                        $(".ingredients").empty();
-                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>");  
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").append(ingList[i].Name + "</br>")
                         $(".instructions").text(response.Instructions)
-                      
                 
                     }
                
@@ -222,6 +222,7 @@ $("#select-food").on("click", function(event) {
         });
 
         $("#slide4").click(function() {
+            $(".ingredients").empty();
             RecipeID = idList[3].RecipeID
             function getRecipeJson(food) {
                 var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
@@ -239,11 +240,12 @@ $("#select-food").on("click", function(event) {
                      
                       var ingList= response.Ingredients;
                     
+                 
                       for(var i=0; i<ingList.length; i++){
-                        console.log(ingList[i].Name)
-                        $(".ingredients").empty();
-                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>");  
-                        $(".instructions").text(response.Instructions);
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").append(ingList[i].Name + "</br>")
+                        $(".instructions").text(response.Instructions)
+                      
                       
                 
                     }
@@ -261,7 +263,7 @@ $("#select-food").on("click", function(event) {
         });
 
         $("#slide5").click(function() {
-        
+            $(".ingredients").empty();
             function getRecipeJson(food) {
                 var apiKey = "rxQ11293h59oU9Z853fw48CmI1H1Js";
                 RecipeID = idList[4].RecipeID
@@ -279,12 +281,13 @@ $("#select-food").on("click", function(event) {
                      
                       var ingList= response.Ingredients;
                       console.log(response.Ingredients)
-                    
+                     
                       for(var i=0; i<ingList.length; i++){
-                        console.log(ingList[i].Name)
-                        $(".ingredients").empty();
-                        $(".ingredients").append("<li>"+ingList[i].Name+"</li>" + "</br>"); 
-                        $(".instructions").text(response.Instructions);
+                        // console.log(ingList[i].Name)
+                        $(".ingredients").append(ingList[i].Name + "</br>")
+                        $(".instructions").text(response.Instructions)
+                      
+                      
                       
                 
                     }
